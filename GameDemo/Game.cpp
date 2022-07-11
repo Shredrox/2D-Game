@@ -17,9 +17,16 @@ void Game::InitWindow()
 
 void Game::InitPlayer()
 {
-    this->m_Player.setRadius(100.f);
+    this->m_Player.setRadius(80.f);
     this->m_Player.setFillColor(sf::Color::Yellow);
-    this->m_Player.setPosition((m_WindowWidth / 2 * 1) - m_Player.getRadius(), (m_WindowHeigth / 2 * 1) - m_Player.getRadius());
+    this->m_Player.setPosition((m_WindowWidth / static_cast<float>(2) * 1) - m_Player.getRadius(), (m_WindowHeigth / static_cast<float>(2) * 1) - m_Player.getRadius());
+}
+
+void Game::InitEnemies()
+{
+    this->m_Enemy.setSize(sf::Vector2f(50.f, 50.f));
+    this->m_Enemy.setFillColor(sf::Color::Red);
+    this->m_Enemy.setPosition(1100, 600);
 }
 
 Game::Game() 
@@ -27,6 +34,7 @@ Game::Game()
 	this->InitVariables();
 	this->InitWindow();
     this->InitPlayer();
+    this->InitEnemies();
 }
 
 Game::~Game()
@@ -46,7 +54,7 @@ void Game::PollEvents()
 void Game::Update()
 {
     this->PollEvents();
-    
+
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && sf::Keyboard::isKeyPressed(sf::Keyboard::D))
     {
         m_Player.move(0.5f * this->m_Speed / 1.5f, -0.5f * this->m_Speed / 1.5f);
@@ -85,6 +93,7 @@ void Game::Render()
 {
     this->m_Window->clear(sf::Color(0,0,100,255));
     this->m_Window->draw(this->m_Player);
+    this->m_Window->draw(this->m_Enemy);
     this->m_Window->display();
 }
 

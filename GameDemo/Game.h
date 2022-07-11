@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 #include <SFML/Graphics.hpp>
 
 class Game
@@ -14,6 +16,7 @@ private:
 
 	//objects
 	sf::CircleShape m_Player;
+	sf::RectangleShape m_Enemy;
 
 	//game var
 	const int m_Speed = 10;
@@ -21,6 +24,7 @@ private:
 	void InitVariables();
 	void InitWindow();
 	void InitPlayer();
+	void InitEnemies();
 
 public:
 	Game();

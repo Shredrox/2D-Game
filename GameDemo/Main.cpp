@@ -4,6 +4,7 @@
 
 int main()
 {
+    //game object
     Game game;
 
     //game loop
