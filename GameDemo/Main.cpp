@@ -4,15 +4,8 @@
 
 int main()
 {
-    //game object
     Game game;
-
-    //game loop
-    while (game.IsRunning())
-    {
-        game.Update();
-        game.Render();   
-    }
-
+    game.Start();
+    
     return 0;
 }

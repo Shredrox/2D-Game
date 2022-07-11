@@ -30,6 +30,7 @@ public:
 	Game();
 	~Game();
 
+	void Start();
 	void PollEvents();
 	void Update();
 	void Render();

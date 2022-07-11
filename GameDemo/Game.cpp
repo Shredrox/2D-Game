@@ -42,6 +42,15 @@ Game::~Game()
 	delete this->m_Window;
 }
 
+void Game::Start()
+{
+    while (IsRunning())
+    {
+        Update();
+        Render();
+    }
+}
+
 void Game::PollEvents()
 {
     while (this->m_Window->pollEvent(this->m_Event))
